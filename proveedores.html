@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proveedores - Once Ideal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .main-content-background::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            
+            background-image: url('luton.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            z-index: -1;
+        }
+
+        
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .menu-toggle button {
+            background-color:transparent;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle button:hover {
+            background-color: whitesmoke;
+        }
+
+       
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 80px;
+            box-sizing: border-box;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 20px;
+            display: block;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+            color: whitesmoke;
+        }
+
+       
+        .top-marquee {
+            position: fixed;
+            top: 0; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 90%;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px 15px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+
+            
+            transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 1; 
+        }
+
+        .top-marquee.hidden {
+            top: -60px; 
+            opacity: 0; 
+            pointer-events: none;
+        }
+
+        .top-marquee img {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .marquesina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: gray;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            box-sizing: border-box;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marquesina .left-content {
+            text-align: left;
+        }
+
+        .marquesina .right-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .marquesina .lema {
+            font-style: italic;
+            font-size: 16px;
+            color: black;
+        }
+
+        .marquesina .umg-logo {
+            height: 45px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+
+        .proveedores-container {
+            flex-grow: 1;
+            padding: 80px 50px 60px 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: auto;
+            margin-top: 70px; 
+        }
+
+        .proveedores-container h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 4em;
+            color: black;
+            margin-bottom: 40px;
+        }
+
+        .proveedor-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 280px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            min-height: 200px; 
+            justify-content: center; 
+        }
+
+        .proveedor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .proveedor-card h2 {
+            font-size: 1.8em; 
+            color: #333;
+            margin-top: 10px; 
+            margin-bottom: 15px;
+        }
+
+        .proveedor-card p {
+            font-size: 1.05em; 
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        
+        @media (max-width: 1200px) {
+            .proveedores-container {
+                padding: 80px 30px 60px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .proveedores-container {
+                padding: 60px 20px 60px 20px;
+                gap: 20px;
+            }
+            .proveedores-container h1 {
+                font-size: 3em;
+                margin-bottom: 30px;
+            }
+            .proveedor-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .proveedores-container h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-background"></div> 
+    
+    <div class="menu-toggle">
+        <button id="menuButton" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <nav class="menu" id="sideMenu">
+        <a href="once-ideal.html">Inicio</a>
+        <a href="quienes.html">Quiénes somos</a>
+        <a href="Mision%20y%20Vision.html">Misión Y Visión</a>
+        <a href="productos.html">Productos</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <div class="top-marquee" id="topMarquee">
+        <img src="adidas4.png" alt="Imagen 1">
+        <img src="nike3.png" alt="Imagen 2">
+        <img src="umbro2.png" alt="Imagen 3">
+        <img src="puma.png" alt="Imagen 4">
+    </div>
+
+    <div class="proveedores-container">
+        <h1>NUESTROS PROVEEDORES</h1>
+
+        <div class="proveedor-card">
+            <h2>Adidas</h2>
+            <p>Proveedor líder mundial de equipamiento deportivo. Sus camisetas combinan diseño icónico con tecnología de vanguardia, asegurando productos auténticos y de la más alta calidad.</p>
+        </div>
+
+        <div class="proveedor-card">
+            <h2>Nike</h2>
+            <p>Marca global reconocida por su innovación y presencia en el fútbol. Nos provee de camisetas con diseños modernos y tejidos avanzados para el máximo confort y estilo.</p>
+        </div>
+
+        <div class="proveedor-card">
+            <h2>Umbro</h2>
+            <p>Con una rica herencia en el fútbol, Umbro es un proveedor clave de equipaciones que fusionan el estilo clásico con la durabilidad, ideal para aficionados y jugadores.</p>
+        </div>
+
+        <div class="proveedor-card">
+            <h2>Puma</h2>
+            <p>Una marca con gran presencia en el fútbol, nos suministra camisetas que destacan por su audacia en el diseño y su enfoque en el rendimiento deportivo.</p>
+        </div>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+            const topMarquee = document.getElementById('topMarquee'); 
+
+            menuButton.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    sideMenu.classList.remove('active');
+                }
+            });
+
+            
+            window.addEventListener('scroll', function() {
+                
+                if (window.scrollY > 50) {
+                    topMarquee.classList.add('hidden'); 
+                } else {
+                    topMarquee.classList.remove('hidden'); 
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

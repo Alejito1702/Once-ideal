@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiénes Somos - Once Ideal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+        .main-content-background::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-image: url('luton.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            z-index: -1;
+        }
+
+       
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .menu-toggle button {
+            background-color:transparent;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle button:hover {
+            background-color: whitesmoke;
+        }
+
+        
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 80px;
+            box-sizing: border-box;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 20px;
+            display: block;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        
+        .marquesina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color:indianred;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            box-sizing: border-box;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marquesina .left-content {
+            text-align: left;
+        }
+
+        .marquesina .right-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .marquesina .lema {
+            font-style: italic;
+            font-size: 16px;
+            color: black;
+        }
+
+        .marquesina .umg-logo {
+            height: 45px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        
+        .quienes-container {
+            display: flex;
+            flex-direction: row; 
+            justify-content: center; 
+            align-items: flex-start; 
+            flex-grow: 1; 
+            padding: 80px 50px 60px 50px; 
+            gap: 50px; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+
+        .quienes-text-content {
+            flex: 1; 
+            max-width: 600px; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quienes-text-content h1 {
+            font-size: 4em; 
+            color: black; 
+            margin-bottom: 20px;
+            text-align: center; 
+        }
+
+        .quienes-text-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify; 
+        }
+
+        .quienes-image-space {
+            flex: 0 0 400px; 
+            height: 400px; 
+            background-color: #f0f0f0; /
+            border: 2px dashed #ccc; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden; 
+        }
+
+        .quienes-image-space img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            object-fit: contain; 
+        }
+
+        
+        .quienes-image-space:empty::before {
+            content: "Espacio para Imagen";
+            color: #888;
+            font-size: 1.2em;
+        }
+
+        
+        @media (max-width: 768px) {
+            .quienes-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 60px 20px 60px 20px;
+            }
+
+            .quienes-text-content {
+                max-width: 100%;
+                margin-bottom: 30px; 
+            }
+
+            .quienes-image-space {
+                flex: 0 0 auto; 
+                width: 90%; 
+                height: 300px; 
+            }
+            .quienes-text-content h1 {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-background"></div> 
+    
+    <div class="menu-toggle">
+        <button id="menuButton" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <nav class="menu" id="sideMenu">
+        <a href="once-ideal.html">Inicio</a> <a href="quienes.html">Quiénes somos</a>
+        <a href="Mision%20y%20Vision.html">Misión Y Visión</a>
+        <a href="productos.html">Productos</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <div class="quienes-container">
+        <div class="quienes-text-content">
+            <h1>QUIÉNES SOMOS</h1>
+            <p>
+                Somos Once Ideal, una organización dedicada a la venta de camisetas de futbol.
+                Creada y fundada por Jorge Alejandro Salazar Alvarez,
+                Alumno de primer semestre de ingenieria en sistemas 
+                de la Universidad Mariano Galvéz de Guatemala
+            </p>
+            </div>
+        <div class="quienes-image-space">
+            <img src="yo.jpg" alt="Yo">
+                
+        </div>
+    
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+
+            menuButton.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    sideMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

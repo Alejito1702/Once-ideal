@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contáctenos - Once Ideal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; 
+        }
+
+        
+        .main-content-background::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-image: url('luton.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .menu-toggle button {
+            background-color: transparent;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle button:hover {
+            background-color: whitesmoke;
+        }
+
+        
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4); 
+            padding-top: 80px;
+            box-sizing: border-box;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color:white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 20px;
+            display: block;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+      
+        .top-marquee {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 90%;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px 15px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+            transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .top-marquee.hidden {
+            top: -60px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .top-marquee img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        
+        .marquesina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color:gray;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            box-sizing: border-box;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marquesina .left-content {
+            text-align: left;
+        }
+
+        .marquesina .right-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .marquesina .lema {
+            font-style: italic;
+            font-size: 16px;
+            color: black;
+        }
+
+        .marquesina .umg-logo {
+            height: 45px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+
+        .contact-container {
+            flex-grow: 1;
+            padding: 100px 40px 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: auto;
+            color: white; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
+        }
+
+        .contact-container h1 {
+            font-size: 3.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .contact-info {
+            background-color: rgba(0, 0, 0, 0.6); 
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 1.2em;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-info i {
+            font-size: 1.5em;
+            color: white; 
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 10px;
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            color: #333; 
+            margin-bottom: 30px; 
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px); 
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        
+        }
+       
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 80px 20px 60px 20px;
+            }
+            .contact-container h1 {
+                font-size: 3em;
+            }
+            .contact-info, .contact-form, .map-container {
+                padding: 20px;
+                max-width: 100%; 
+            }
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                width: calc(100% - 24px); 
+            }
+            .contact-form button {
+                padding: 12px 20px;
+                font-size: 1.1em;
+            }
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-container h1 {
+                font-size: 2.5em;
+            }
+            .contact-info p {
+                font-size: 1em;
+                flex-direction: column; 
+                gap: 5px;
+            }
+            .contact-info i {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-background"></div> 
+
+    <div class="menu-toggle">
+        <button id="menuButton" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <nav class="menu" id="sideMenu">
+        <a href="once-ideal.html">Inicio</a>
+        <a href="quienes.html">Quiénes somos</a>
+        <a href="Mision%20y%20Vision.html">Misión Y Visión</a>
+        <a href="productos.html">Productos</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <div class="top-marquee" id="topMarquee">
+        <img src="adidas4.png" alt="Adidas Logo">
+        <img src="nike3.png" alt="Nike Logo">
+        <img src="umbro2.png" alt="Umbro Logo">
+        <img src="puma.png" alt="Puma Logo">
+    </div>
+
+    <div class="contact-container">
+        <h1>CONTÁCTENOS</h1>
+        <p>¿Tienes alguna pregunta, comentario o necesitas ayuda? Estamos aquí para escucharte.</p>
+
+        <div class="contact-info">
+            <p><i class="fas fa-phone-alt"></i> Teléfono: +502 5912-1830</p>
+            <p><i class="fas fa-envelope"></i> Correo Electrónico: info@onceideal.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Avenida 9-00 zona 2, Interior Finca el Zapote, Ciudad de Guatemala, Guatemala</p>
+            <p><i class="fas fa-clock"></i> Horario de Atención: Lunes a Viernes de 9:00 AM a 6:00 PM</p>
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+            const topMarquee = document.getElementById('topMarquee');
+
+            menuButton.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    sideMenu.classList.remove('active');
+                }
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    topMarquee.classList.add('hidden');
+                } else {
+                    topMarquee.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

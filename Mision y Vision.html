@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Misión y Visión - Once Ideal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .main-content-background::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+          
+            background-image: url('luton.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            z-index: -1;
+        }
+
+        
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .menu-toggle button {
+            background-color:transparent;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle button:hover {
+            background-color: whitesmoke;
+        }
+
+        
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 80px;
+            box-sizing: border-box;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color: whitesmoke;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 20px;
+            display: block;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+       
+        .marquesina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color:#a0aeb8;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            box-sizing: border-box;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marquesina .left-content {
+            text-align: left;
+        }
+
+        .marquesina .right-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .marquesina .lema {
+            font-style: italic;
+            font-size: 16px;
+            color: black;
+        }
+
+        .marquesina .umg-logo {
+            height: 45px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+       
+        .mision-vision-container {
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center; 
+            flex-grow: 1;
+            padding: 80px 50px 60px 50px;
+            max-width: 900px; 
+            margin: auto; 
+             }
+        .section-box {
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px; 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+
+        .section-box h1 {
+            font-size: 3.5em; 
+            color: black; 
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-box p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .mision-vision-container {
+                padding: 60px 20px 60px 20px;
+            }
+
+            .section-box {
+                margin-bottom: 30px;
+            }
+
+            .section-box h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-background"></div> 
+    
+    <div class="menu-toggle">
+        <button id="menuButton" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <nav class="menu" id="sideMenu">
+        <a href="once-ideal.html">Inicio</a>
+        <a href="quienes.html">Quiénes somos</a>
+        <a href="Mision%20y%20Vision.html">Misión Y Visión</a>
+        <a href="productos.html">Productos</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <div class="mision-vision-container">
+        <div class="section-box">
+            <h1>MISIÓN</h1>
+            <p>
+                En Once Ideal, nuestra misión es ser el destino principal para los aficionados y coleccionistas, ofreciendo la más auténtica y variada selección de camisetas de fútbol de equipos y selecciones de todo el mundo. Nos comprometemos a brindar productos de alta calidad y una experiencia de compra excepcional, conectando a nuestros clientes con la pasión y la historia de su deporte favorito a través de cada camiseta.
+            </p>
+            </div>
+
+        <div class="section-box">
+            <h1>VISIÓN</h1>
+            <p>
+               Nuestra visión es consolidarnos como el referente líder y de confianza en el mercado de camisetas de fútbol a nivel nacional e internacional. Aspiramos a ser reconocidos por nuestra amplia gama, la calidad de nuestros productos y nuestro compromiso con la comunidad futbolística, expandiendo constantemente nuestra colección y superando las expectativas de los verdaderos apasionados por el balompié, celebrando la identidad y el orgullo de cada equipo
+            </p>
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+
+            menuButton.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    sideMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
